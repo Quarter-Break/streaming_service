@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+    pkg:
+        build: .
+        ports:
+            - "4343:4343"
+        command: npm run watch
+        volumes:
+          - .:/usr/app/
+          - /usr/app/node_modules
