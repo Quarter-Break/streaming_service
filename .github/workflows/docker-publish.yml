@@ -13,9 +13,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           
-      - uses: actions/checkout@v2
-        env:
-          DATABASE: ${{ secrets.DATABASE_CONNECTION }}
+      - name: Create env file
+        run: |
+          touch .env
+          echo DATABASE=${{ secrets.DATABASE_CONNECTION }} >> .env
           
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
