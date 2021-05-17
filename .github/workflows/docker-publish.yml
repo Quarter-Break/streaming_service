@@ -12,6 +12,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          
+      - uses: actions/setup-node@v2
+      - name: Variable substitution
         env:
           DATABASE: ${{ secrets.DATABASE_CONNECTION }}
           
