@@ -13,8 +13,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           
-      - uses: actions/setup-node@v2
-      - name: Variable substitution
+      - run: npm install
         env:
           DATABASE: ${{ secrets.DATABASE_CONNECTION }}
           
