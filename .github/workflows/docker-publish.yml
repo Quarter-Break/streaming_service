@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           
-      - run: npm install
+      - uses: actions/checkout@v2
         env:
           DATABASE: ${{ secrets.DATABASE_CONNECTION }}
           
