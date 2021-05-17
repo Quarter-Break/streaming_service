@@ -5,7 +5,6 @@
 FROM node:15.12.0-alpine
 
 # Create app dir
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/app
 
 # Install app dependencies
