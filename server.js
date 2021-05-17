@@ -36,11 +36,11 @@ let db;
 MongoClient.connect(process.env.DATABASE, {
     useUnifiedTopology: true
 }, (err, database) => {
+    console.log(process.env.DATABASE);
     if (err) {
         console.log('MongoDB Connection Error. ' + err.message);
         process.exit(1);
     }
-    console.log(process.env.DATABASE);
     console.log('Connected...');
     db = database.db('qb_track_db');
 });
