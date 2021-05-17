@@ -12,11 +12,13 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Variable substitution
+        env:
+          DATABASE: ${{ secrets.DATABASE_CONNECTION }}
           
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
-        env:
-          DATABASE: ${{ secrets.DATABASE_CONNECTION }}
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
