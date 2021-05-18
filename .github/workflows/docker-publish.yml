@@ -13,11 +13,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           
-      - uses: actions/checkout@v2
-      - name: Set env
-        run: echo "DATABASE=${{ secrets.DATABASE_CONNECTION }}" >> .env
-      - name: Test
-        run: echo .env
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_DATABASE: ${{ secrets.DATABASE_CONNECTION }}
         
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
