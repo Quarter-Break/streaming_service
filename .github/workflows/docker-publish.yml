@@ -17,6 +17,7 @@ jobs:
         run: |
           touch .env
           echo DATABASE=${{ secrets.DATABASE_CONNECTION }} >> .env
+          cat .env
           
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
