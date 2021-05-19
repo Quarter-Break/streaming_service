@@ -17,6 +17,7 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_DATABASE: ${{ secrets.DATABASE_CONNECTION }}
+          envkey_TEST: "test"
         
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1

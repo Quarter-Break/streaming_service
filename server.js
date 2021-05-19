@@ -37,6 +37,7 @@ MongoClient.connect(process.env.DATABASE, {
     useUnifiedTopology: true
 }, (err, database) => {
     console.log(process.env.DATABASE);
+    console.log(process.env.TEST);
     if (err) {
         console.log('MongoDB Connection Error. ' + err.message);
         process.exit(1);
