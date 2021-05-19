@@ -18,6 +18,9 @@ jobs:
         with:
           envkey_DATABASE: ${{ secrets.DATABASE_CONNECTION }}
           envkey_TEST: "test"
+
+      - run: npm ci
+      - run: npm run build
         
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
