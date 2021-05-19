@@ -6,7 +6,8 @@
   "scripts": {
     "prod": "node server",
     "watch": "nodemon server --ignore public/",
-    "start": "npm run watch"
+    "start": "npm run watch",
+    "production": "NODE_ENV=production node ./app"
   },
   "author": "",
   "license": "ISC",
