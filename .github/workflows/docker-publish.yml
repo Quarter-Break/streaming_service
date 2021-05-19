@@ -15,12 +15,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          
-      - name: Create .env file
-        uses: SpicyPizza/create-envfile@v1
-        with:
-          envkey_DATABASE: ${{ secrets.DATABASE_CONNECTION }}
-          envkey_TEST: "test"
+        env:
+          DATABASE: ${{ secrets.DATABASE_CONNECTION }}
 
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
