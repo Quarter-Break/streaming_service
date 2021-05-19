@@ -14,9 +14,13 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-        env:
-          DATABASE: ${{ secrets.DATABASE_CONNECTION }}
+          node-version: ${{ matrix.node-version }}          
+
+      - name: Create env file
+        run: |
+          touch .env
+          echo DATABASE: ${{ secrets.DATABASE_CONNECTION }} >> .env
+          cat .env
 
       - name: Push to Docker Hub
         uses: docker/build-push-action@v1
